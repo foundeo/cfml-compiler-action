@@ -1,0 +1,16 @@
+# action.yml
+name: 'CFML Compiler Action'
+description: 'Compiles CFML code to check for errors'
+inputs:
+  cfengine:  # id of input
+    description: 'The cfengine version'
+    required: false
+    default: ''
+outputs:
+  output: # id of output
+    description: 'Result of Compilation'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.cfengine }}
